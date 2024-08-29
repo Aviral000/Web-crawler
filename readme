@@ -1,2 +1,12 @@
-Backend:
-1. 
+Backend: (Node and Express) & DB (MONGODB)
+1. I use the Gemini Ai for web crawling/scrapping
+2. Sensitive data is being secured in the ENV files
+3. I use the cheerio to load the data from the website and use it like as Content
+4. Render- https://web-crawler-6kqp.onrender.com
+5. If you want to see the analytics of the AI, go to postman and search this: https://web-crawler-6kqp.onrender.com/api/analytics
+
+Frontend: (REACT)
+1. I use the React for frontend part because of SPA
+2. I use the Material UI for little bit styling to the components/elements
+3. I deployed the frontend on vercel.
+4. https://web-crawler-psi.vercel.app/

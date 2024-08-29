@@ -1,14 +1,9 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Paper, TextField, Button, Typography } from '@mui/material';
-import { gsap } from 'gsap';
+import { Link } from 'react-router-dom';
 
 const ChatInterface = ({ messages, onQuerySubmit }) => {
   const [query, setQuery] = useState('');
-  const chatBoxRef = useRef(null);
-  const inputRef = useRef(null);
-
-  useLayoutEffect(() => {
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +15,12 @@ const ChatInterface = ({ messages, onQuerySubmit }) => {
 
   return (
     <Box sx={{ padding: 2, maxWidth: 600, margin: 'auto' }}>
-      <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }} ref={chatBoxRef}>
+      <Link to="/dashboard">
+        <Typography variant="h4" gutterBottom>
+          <Button variant="contained" sx={{ backgroundColor: "teal" }}>DashBoard</Button>
+        </Typography>
+      </Link>
+      <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
         <Typography variant="h5" gutterBottom>
           Chat with AI
         </Typography>
@@ -37,7 +37,7 @@ const ChatInterface = ({ messages, onQuerySubmit }) => {
           ))}
         </Box>
       </Paper>
-      <form onSubmit={handleSubmit} ref={inputRef}>
+      <form onSubmit={handleSubmit} >
         <TextField
           fullWidth
           variant="outlined"

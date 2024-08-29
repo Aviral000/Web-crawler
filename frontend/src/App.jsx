@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ChatPage from './pages/ChatPage';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 import './App.css';
+import DashboardPage from './pages/DashboardPage';
 
 const theme = createTheme({
   palette: {
@@ -26,6 +27,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/" element={<ChatPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
           </Routes>
         </div>
       </Router>
