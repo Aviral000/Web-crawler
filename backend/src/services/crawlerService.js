@@ -1,5 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const Content = require('../models/Content');
 
 const crawlWebsite = async (url) => {
   try {
@@ -7,6 +8,7 @@ const crawlWebsite = async (url) => {
     const $ = cheerio.load(data);
 
     const content = {
+      url: url,
       text: $('body').text(),
       links: [],
       images: []
@@ -19,6 +21,8 @@ const crawlWebsite = async (url) => {
     $('img').each((i, img) => {
       content.images.push($(img).attr('src'));
     });
+
+    await Content.findOneAndUpdate({ url: url }, content, { upsert: true, new: true });
 
     return content;
   } catch (error) {
