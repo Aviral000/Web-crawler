@@ -19,6 +19,7 @@ const ChatPage = () => {
       return updatedMessages;
     });
   };
+  console.log(url);
 
   return (
     <Container maxWidth="sm" sx={{ marginTop: 4 }}>

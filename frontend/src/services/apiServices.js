@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export const fetchCrawlData = async (url, query) => {
   try {
-    const response = await axios.post('http://127.0.0.1:8082/api/crawl', {
-      url: 'https://en.wikipedia.org/wiki/Artificial_intelligence',
+    const response = await axios.post('https://web-crawler-6kqp.onrender.com/api/crawl', {
+      url: url,
       query
     });
     return response.data.response;
