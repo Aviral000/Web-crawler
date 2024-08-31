@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import ChatInterface from '../components/ChatInterface';
-import { fetchCrawlData } from '../services/apiServices';
+import { fetchCrawlData, userFeedback } from '../services/apiServices';
 import { Box, Container, TextField } from '@mui/material';
+import UserDetailsPrompt from '../components/UserDetailsPrompt';
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
@@ -19,22 +20,43 @@ const ChatPage = () => {
       return updatedMessages;
     });
   };
-  console.log(url);
+
+  const handleUserDetailsSubmit = async (details) => {
+    try {
+      const response = await userFeedback(details);
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+    }
+  };
 
   return (
-    <Container maxWidth="sm" sx={{ marginTop: 4 }}>
-      <Box sx={{ textAlign: 'center' }}>
+    <Container maxWidth="md" sx={{ padding: 4, backgroundColor: 'background.default' }}>
+      <Box sx={{ paddingBottom: 2 }}>
+        <TextField
+          label="Enter URL to Crawl"
+          variant="outlined"
+          fullWidth
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          sx={{
+            marginBottom: 2,
+            input: { color: 'text.primary' },
+            label: { color: 'text.secondary' },
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: 'text.secondary',
+              },
+              '&:hover fieldset': {
+                borderColor: 'primary.main',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: 'primary.main',
+              },
+            },
+          }}
+        />
         <ChatInterface messages={messages} onQuerySubmit={handleUserQuery} />
-        <Box mt={2}>
-          <TextField
-            fullWidth
-            variant="outlined"
-            label="Enter URL to crawl"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            sx={{ marginBottom: 2 }}
-          />
-        </Box>
+        <UserDetailsPrompt onSubmit={handleUserDetailsSubmit} />
       </Box>
     </Container>
   );

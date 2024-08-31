@@ -1,4 +1,4 @@
-Backend: (Node and Express) & DB (MONGODB)
+Backend: (Node and Express) & ODM (MONGODB)
 1. I use the Gemini Ai for web crawling/scrapping
 2. Sensitive data is being secured in the ENV files
 3. I use the cheerio to load the data from the website and use it like as Content

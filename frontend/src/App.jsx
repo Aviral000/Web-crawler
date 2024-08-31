@@ -7,15 +7,33 @@ import DashboardPage from './pages/DashboardPage';
 
 const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
-      main: '#1976d2',
+      main: '#90caf9',
     },
     secondary: {
-      main: '#ff4081',
+      main: '#ffffff',
+    },
+    background: {
+      default: '#1e1e1e',
+      paper: '#2d2d2d',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: '#a0a0a0',
     },
   },
   typography: {
     fontFamily: 'Roboto, sans-serif',
+    h4: {
+      fontWeight: 500,
+    },
+    h5: {
+      fontWeight: 500,
+    },
+    body1: {
+      fontSize: '1rem',
+    },
   },
 });
 
