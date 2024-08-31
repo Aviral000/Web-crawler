@@ -10,3 +10,8 @@ Frontend: (REACT)
 2. I use the Material UI for little bit styling to the components/elements
 3. I deployed the frontend on vercel.
 4. https://web-crawler-psi.vercel.app/
+
+setup:
+1. Clone everything using github CI
+2. use npm install to install the node_module
+3. use npm start for frontend and use npm run dev for backend (to run it locally)
