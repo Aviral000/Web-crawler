@@ -3,6 +3,7 @@ import ChatInterface from '../components/ChatInterface';
 import { fetchCrawlData, userFeedback } from '../services/apiServices';
 import { Box, Container, TextField } from '@mui/material';
 import UserDetailsPrompt from '../components/UserDetailsPrompt';
+import Swal from 'sweetalert2';
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
@@ -24,7 +25,27 @@ const ChatPage = () => {
   const handleUserDetailsSubmit = async (details) => {
     try {
       const response = await userFeedback(details);
+      if(response.data.status === 500) {
+        Swal.fire({
+          title: 'Error!',
+          text: "Make sure you don't use the same email address to send the feedback",
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
+      }
+      Swal.fire({
+        title: 'Success!',
+        text: 'Your feedback has been submitted successfully.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      });
     } catch (error) {
+      Swal.fire({
+        title: 'Error!',
+        text: "Make sure you don't use the same email address to send the feedback",
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
       console.error('Error submitting feedback:', error);
     }
   };

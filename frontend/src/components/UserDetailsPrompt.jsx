@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, TextField, Button, Typography, Paper, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import Swal from 'sweetalert2';
 
 const UserDetailsPrompt = ({ onSubmit }) => {
   const [visible, setVisible] = useState(false);
@@ -31,13 +30,6 @@ const UserDetailsPrompt = ({ onSubmit }) => {
     onSubmit(userDetails);
 
     setDetails({ name: '', email: '', feedback: '' });
-
-    Swal.fire({
-      title: 'Success!',
-      text: 'Your feedback has been submitted successfully.',
-      icon: 'success',
-      confirmButtonText: 'OK',
-    });
 
     setVisible(false);
   };
