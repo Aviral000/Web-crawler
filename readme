@@ -1,17 +1,47 @@
-Backend: (Node and Express) & ODM (MONGODB)
-1. I use the Gemini Ai for web crawling/scrapping
-2. Sensitive data is being secured in the ENV files
-3. I use the cheerio to load the data from the website and use it like as Content
-4. Render- https://web-crawler-6kqp.onrender.com
-5. If you want to see the analytics of the AI, go to postman and search this: https://web-crawler-6kqp.onrender.com/api/analytics
+*Web Crawler Application Overview*
+"Backend (Node.js & Express)"
+Web Crawling/Scraping:
 
-Frontend: (REACT)
-1. I use the React for frontend part because of SPA
-2. I use the Material UI for little bit styling to the components/elements
-3. I deployed the frontend on vercel.
-4. https://web-crawler-psi.vercel.app/
+Utilizes Gemini AI for efficient web crawling and scraping tasks.
+Data is extracted from websites and processed as content using Cheerio, which loads and manipulates HTML and XML.
+Database Management:
 
-setup:
-1. Clone everything using github CI
-2. use npm install to install the node_module
-3. use npm start for frontend and use npm run dev for backend (to run it locally)
+The application uses MongoDB as its database, with an ODM (Object Data Modeling) to interact with the database.
+Security:
+
+Sensitive data, including API keys and database credentials, is securely stored in environment variables (ENV files).
+Analytics:
+
+The backend provides an API endpoint for retrieving analytics related to the AI-powered web crawler.
+Accessing Analytics: To view the analytics, you can use Postman or any REST client to make a GET request to the following URL:
+https://web-crawler-6kqp.onrender.com/api/analytics
+Deployment:
+
+The backend is deployed on Render and can be accessed at:
+https://web-crawler-6kqp.onrender.com
+
+
+"Frontend (React)"
+Frontend Framework:
+
+The application uses React for building the frontend, taking advantage of its Single Page Application (SPA) capabilities for a seamless user experience.
+Styling:
+
+Material-UI is used to style various components and elements, providing a modern and responsive UI.
+Frontend Deployment:
+
+The frontend is deployed on Vercel and can be accessed at:
+https://web-crawler-psi.vercel.app/
+Setup Instructions
+Cloning the Repository:
+
+Use GitHub CI to clone the entire project repository.
+Installing Dependencies:
+
+Run npm install in both the frontend and backend directories to install all the necessary node_modules.
+Running the Application Locally:
+
+For the frontend:
+Run npm start to launch the React application.
+For the backend:
+Run npm run dev to start the Node.js server in development mode.
