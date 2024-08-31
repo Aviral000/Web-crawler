@@ -10,7 +10,7 @@ const UserDetailsPrompt = ({ onSubmit }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(true);
-    }, 3000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
